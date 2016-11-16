@@ -1,5 +1,6 @@
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
 
@@ -25,6 +26,40 @@ public class Main {
 		}
 	}
 	
+	public String getUserInput() {
+		try {
+			Scanner sc = new Scanner(System.in);
+			String str = "";
+			while(!(str = sc.nextLine()).equals("@esc")) {	//@esc 키로 프로그램탈출
+				System.out.println(str);
+			}
+			sc.close();
+			return str;
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		} finally {
+			return "";
+		}
+	}
+	
+	public String getUserInput2() {
+		try {
+			InputStreamReader isr = new InputStreamReader(System.in);
+			BufferedReader br = new BufferedReader(isr);
+			String str = "";
+			System.out.println("끝내고 싶다면 Ctrl + C를 입력하시오");
+			//while(!(str = br.readLine()).equals("@esc")) {		///@esc
+			while ((str = br.readLine()) != null) {
+				System.out.println(str);
+			}
+			br.close();		//순서 중요. br먼저 close 먼저 open한 br
+			isr.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		} finally {
+			return "";
+		}
+	}
 
 	//TO DO
 	/*	1.     메뉴 표시하기(메모 입력, 메모 리스트 출력, 메모 읽기, 메모 삭제, 메모 검색)
