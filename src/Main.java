@@ -1,65 +1,85 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Scanner;
+import utils.Utils;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
+		boolean loopFlag = true;
+		int userInput = 0;
+		while(loopFlag) {
+			displayMenu();
+			userInput = Utils.getUserInputScanner();
+			switch (userInput) {
+			case 1:
+				inputMemo();
+				break;
+			case 2:
+				showMemoList();
+				break;
+			case 3:
+				loadMemo();
+				break;
+			case 4:
+				deleteMemo();
+				break;
+			case 5:
+				searchMemo();
+				break;
+			case 6:
+				sortingMemo();
+				break;
+			case 7:
+				loopFlag = false;
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			default:
+				System.out.println("1~7 사이의 숫자를 입력하세요.");
+				break;
+			}
+			
+		}
+	}
+	
+	private static void sortingMemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void searchMemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void deleteMemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void loadMemo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void showMemoList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void inputMemo() {
+		
+	}
+
+	private static void displayMenu() {
 		System.out.println("==============  To Do  ==============");
-		while(true) {
-			char userInput = '0';  
-			System.out.println("1. 메모 입력");
-			System.out.println("2. 메모 리스트 출력");
-			System.out.println("3. 메모 읽기");
-			System.out.println("4. 메모 삭제");
-			System.out.println("5. 메모 검색");
-			System.out.println("6. 메모 정렬");		
-			System.out.print("입력:> ");
-			try {
-				userInput = (char)System.in.read();	//read는 int return.
-				System.out.println("입력값: " + userInput);
-			} catch (Exception e) {
-				e.getMessage();
-			}
-			break;
-		}
-	}
-	
-	public String getUserInput() {
-		try {
-			Scanner sc = new Scanner(System.in);
-			String str = "";
-			while(!(str = sc.nextLine()).equals("@esc")) {	//@esc 키로 프로그램탈출
-				System.out.println(str);
-			}
-			sc.close();
-			return str;
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		} finally {
-			return "";
-		}
-	}
-	
-	public String getUserInput2() {
-		try {
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(isr);
-			String str = "";
-			System.out.println("끝내고 싶다면 Ctrl + C를 입력하시오");
-			//while(!(str = br.readLine()).equals("@esc")) {		///@esc
-			while ((str = br.readLine()) != null) {
-				System.out.println(str);
-			}
-			br.close();		//순서 중요. br먼저 close 먼저 open한 br
-			isr.close();
-		} catch (Exception e) {
-			System.out.println(e.toString());
-		} finally {
-			return "";
-		}
-	}
+		System.out.println("1. 메모 입력");
+		System.out.println("2. 메모 리스트 출력");
+		System.out.println("3. 메모 읽기");
+		System.out.println("4. 메모 삭제");
+		System.out.println("5. 메모 검색");
+		System.out.println("6. 메모 정렬");		
+		System.out.println("7. 종     료");		
+		System.out.print("입력:> ");
+    }
 
 	//TO DO
 	/*	1.     메뉴 표시하기(메모 입력, 메모 리스트 출력, 메모 읽기, 메모 삭제, 메모 검색)
