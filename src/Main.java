@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import utils.Utils;
 
 public class Main {
@@ -38,6 +41,7 @@ public class Main {
 			}
 			
 		}
+		System.out.println("while문 밖");
 	}
 	
 	private static void sortingMemo() {
@@ -66,7 +70,20 @@ public class Main {
 	}
 
 	private static void inputMemo() {
-		
+		String title="";
+		String contents="";
+		String writtenTime="";
+		System.out.println("메모를 입력하세요..");
+		System.out.print("제목을 입력하세요: ");
+		title = Utils.getUserInputBufferReader();
+		System.out.println();
+		System.out.print("내용을 입력하세요: ");
+		contents = Utils.getUserInputBufferReader();
+		System.out.println();
+		System.out.print("메모입력 시간: " + writtenTime);
+		Date currentDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a");
+		writtenTime = sdf.format(currentDate).toString();
 	}
 
 	private static void displayMenu() {

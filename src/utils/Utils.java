@@ -6,11 +6,16 @@ import java.util.Scanner;
 
 public class Utils {
 	
+	//int return , Scanner
 	public static int getUserInputScanner() {
+		int input = 0;
 		Scanner sc = new Scanner(System.in);
-		return sc.nextInt();
+		input = sc.nextInt();
+		sc.close();
+		return input;
 	}
 	
+	//String return ,  BufferReader 
 	public static String getUserInputBufferReader() {
 		try {
 			InputStreamReader isr = new InputStreamReader(System.in);
@@ -30,6 +35,7 @@ public class Utils {
 		return null;
 	}
 	
+	//char return , ByteArray
 	public static char getUserInputByteArr() {
 		byte[] bit = new byte[1024];
 		int len = 0;
